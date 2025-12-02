@@ -1,0 +1,521 @@
+{
+  "info": {
+    "_postman_id": "884c895a-5a06-4ff0-b783-0fe2a71d278e",
+    "name": "NLM GraphQL APIs",
+    "description": "Nalanda Library Management - GraphQL APIs",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "44611118"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Admin",
+          "item": [
+            {
+              "name": "Register",
+              "id": "650b9256-bfea-4448-8fda-09b98fc1d738",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "mutation Register($input: RegisterInput!) {\r\n  register(input: $input) {\r\n    success\r\n    message\r\n    user {\r\n      id\r\n      name\r\n      email\r\n      role\r\n      isActive\r\n      createdAt\r\n    }\r\n    token\r\n  }\r\n}",
+                    "variables": "{\r\n  \"input\": {\r\n    \"name\": \"testAdmin\",\r\n    \"email\": \"Admin@gmail.com\",\r\n    \"password\": \"Admin@123\",\r\n    \"role\": \"Admin\"\r\n  }\r\n}"
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8000/graphql",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "graphql"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Login",
+              "id": "339f4855-e0d6-4583-a5b1-523f5039ef07",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "mutation Login($input: LoginInput!) {\r\n  login(input: $input) {\r\n    success\r\n    message\r\n    user {\r\n      id\r\n      name\r\n      email\r\n      role\r\n      isActive\r\n      createdAt\r\n      updatedAt\r\n    }\r\n    token\r\n  }\r\n}",
+                    "variables": "{\r\n    \"input\":{\r\n        \"email\":\"Admin@gmail.com\",\r\n        \"password\":\"Admin@123\"\r\n    }\r\n}"
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8000/graphql",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "graphql"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "id": "16ac1b6b-25f3-4748-9e3a-6a8f7a0a99fc"
+        },
+        {
+          "name": "Member",
+          "item": [
+            {
+              "name": "Register",
+              "id": "2748138a-7ad4-4f0a-8ddf-52c99f6c38d0",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "mutation Register($input: RegisterInput!) {\r\n  register(input: $input) {\r\n    success\r\n    message\r\n    user {\r\n      id\r\n      name\r\n      email\r\n      role\r\n      isActive\r\n      createdAt\r\n    }\r\n    token\r\n  }\r\n}",
+                    "variables": "{\r\n  \"input\": {\r\n    \"name\": \"John Doe\",\r\n    \"email\": \"john1@example.com\",\r\n    \"password\": \"password123\",\r\n    \"role\": \"Member\"\r\n  }\r\n}"
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8000/graphql",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "graphql"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Login",
+              "id": "b8412222-0643-4bc6-9e3d-88526d6ba09b",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "mutation Login($input: LoginInput!) {\r\n  login(input: $input) {\r\n    success\r\n    message\r\n    user {\r\n      id\r\n      name\r\n      email\r\n      role\r\n      isActive\r\n      createdAt\r\n      updatedAt\r\n    }\r\n    token\r\n  }\r\n}",
+                    "variables": "{\r\n    \"input\":{\r\n        \"email\":\"john1@example.com\",\r\n        \"password\":\"password123\"\r\n    }\r\n}"
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8000/graphql",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "graphql"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "id": "68e98256-36db-4e8e-ac12-c35468d60590"
+        }
+      ],
+      "id": "ac39956f-6ec0-475c-ada6-7f8248f2be4d"
+    },
+    {
+      "name": "Book_Management",
+      "item": [
+        {
+          "name": "Admin_Mutations",
+          "item": [
+            {
+              "name": "Add_Book",
+              "id": "fbf17c41-42ad-463f-ad10-220979f7b35a",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "U2FsdGVkX1+e5rd+uBhoGRkUeogTEI35m82Berz9vXze9LxIJrRzrediUR7hH1M+ZNjePypQwEh8ur94fL9drFy8352WwxUPI7q6WhPx5Z2oQgo1R9D+gJbbMKeUCqzvIFGMicemfDfMyrTzx2KZZ+bgRj7Gqo+bRl8BJ+bLh5VjFQ0SkAvJqXC9MjahJ0SI9BdOV4Mbva9MjyxkQmcdm5nUQ/jj40CT7R1nMBzvTzORDxlVuBNMeK+GRBQpZXwkOe/bQ7F2Bby1/+YNk3Wpdw==",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "mutation AddBook($input: AddBookInput!) {\r\n  addBook(input: $input) {\r\n    success\r\n    message\r\n    data {\r\n      id\r\n      title\r\n      author\r\n      isbn\r\n      publicationDate\r\n      genre\r\n      totalCopies\r\n      availableCopies\r\n      isActive\r\n      createdAt\r\n    }\r\n  }\r\n}\r\n",
+                    "variables": "{\r\n  \"input\": {\r\n    \"title\": \"Mastering MongoDB\",\r\n    \"author\": \"Neha\",\r\n    \"isbn\": \"ISBN000\",\r\n    \"publicationDate\": \"2020-12-01\", \r\n    \"genre\": \"Programming\",\r\n    \"totalCopies\": 5,\r\n    \"availableCopies\": 5\r\n  }\r\n}\r\n"
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8000/graphql",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "graphql"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Update_Book",
+              "id": "3f3cf8e4-feb5-4a90-b02d-c1df9f92dc86",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "mutation UpdateBook($id: ID!, $input: UpdateBookInput!) {\r\n  updateBook(id: $id, input: $input) {\r\n    success\r\n    message\r\n    data {\r\n      id\r\n      title\r\n      author\r\n      isbn\r\n      publicationDate\r\n      genre\r\n      totalCopies\r\n      availableCopies\r\n      isActive\r\n      createdAt\r\n      updatedAt\r\n    }\r\n  }\r\n}",
+                    "variables": "{\r\n      \"id\": \"692ed1ca68fdd2af48f7d233\",\r\n  \"input\": {\r\n    \"title\": \"Mastering MongoDB - Updated\",\r\n    \"author\": \"Neha\",\r\n    \"isbn\": \"ISBN000\",\r\n    \"publicationDate\": \"2020-12-01\", \r\n    \"genre\": \"Programming\",\r\n    \"totalCopies\": 5,\r\n    \"availableCopies\": 5\r\n  }\r\n}\r\n"
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8000/graphql",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "graphql"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Delete_Book",
+              "id": "96f09a62-3a51-4fbf-8617-863f912946c5",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "mutation DeleteBook($id: ID!) {\r\n  deleteBook(id: $id) {\r\n    success\r\n    message\r\n  }\r\n}",
+                    "variables": "{\r\n    \"id\": \"692ed1ca68fdd2af48f7d233\"\r\n}"
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8000/graphql",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "graphql"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "id": "247778e2-3568-4f32-bae4-4f3e040c1d68"
+        },
+        {
+          "name": "Query_Book",
+          "item": [
+            {
+              "name": "All_Books",
+              "id": "7130f606-f4e7-479e-b77a-b6efab8743ec",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "query GetBooks(\r\n  $page: Int\r\n  $limit: Int\r\n  $genre: String\r\n  $author: String\r\n  $title: String\r\n) {\r\n  getBooks(\r\n    page: $page\r\n    limit: $limit\r\n    genre: $genre\r\n    author: $author\r\n    title: $title\r\n  ) {\r\n    success\r\n    count\r\n    total\r\n    totalPages\r\n    currentPage\r\n    data {\r\n      id\r\n      title\r\n      author\r\n      isbn\r\n      publicationDate\r\n      genre\r\n      totalCopies\r\n      availableCopies\r\n      isActive\r\n      createdAt\r\n      updatedAt\r\n    }\r\n  }\r\n}\r\n",
+                    "variables": "{\r\n  \"page\": 1,\r\n  \"limit\": 10\r\n}\r\n"
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8000/graphql",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "graphql"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Book_By_ID",
+              "id": "33587174-315f-4343-b933-d1cd87cf362d",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "graphql",
+                  "graphql": {
+                    "query": "query GetBookById($id: ID!) {\r\n  getBookById(id: $id) {\r\n    success\r\n    data {\r\n      id\r\n      title\r\n      author\r\n      isbn\r\n      publicationDate\r\n      genre\r\n      totalCopies\r\n      availableCopies\r\n      isActive\r\n      createdAt\r\n      updatedAt\r\n    }\r\n  }\r\n}",
+                    "variables": "{\r\n    \"id\":\"692ed14868fdd2af48f7d22d\"\r\n}"
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8000/graphql",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "graphql"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "id": "06063f71-794f-4e65-8af9-b2004ff906f5"
+        }
+      ],
+      "id": "fb468e9b-39f5-4800-bd67-4fcc069103c2"
+    },
+    {
+      "name": "Boorow",
+      "item": [
+        {
+          "name": "Borrow_Book",
+          "id": "a6ffe081-99bc-4494-a085-21905ed559f7",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query GetBookById($id: ID!) {\r\n  getBookById(id: $id) {\r\n    success\r\n    data {\r\n      id\r\n      title\r\n      author\r\n      isbn\r\n      publicationDate\r\n      genre\r\n      totalCopies\r\n      availableCopies\r\n      isActive\r\n      createdAt\r\n      updatedAt\r\n    }\r\n  }\r\n}",
+                "variables": "{\r\n     \"id\": \"692dad689c5af9efc5160df5\"\r\n}"
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/graphql",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "graphql"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Return_Book",
+          "id": "03688221-4b86-47f5-a5fa-7567b3ea4e6b",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "mutation ReturnBook($borrowingId: ID!) {\r\n  returnBook(borrowingId: $borrowingId) {\r\n    success\r\n    message\r\n    data {\r\n      id\r\n\r\n      userId {\r\n        id\r\n        name\r\n        email\r\n        role\r\n        isActive\r\n        createdAt\r\n        updatedAt\r\n      }\r\n\r\n      bookId {\r\n        id\r\n        title\r\n        author\r\n        isbn\r\n        publicationDate\r\n        genre\r\n        totalCopies\r\n        availableCopies\r\n        isActive\r\n        createdAt\r\n        updatedAt\r\n      }\r\n\r\n      borrowDate\r\n      dueDate\r\n      returnDate\r\n      status\r\n      createdAt\r\n      updatedAt\r\n    }\r\n  }\r\n}\r\n",
+                "variables": "{\r\n  \"borrowingId\": \"67a0e4d54c9e8f5cd59c1123\"\r\n}\r\n"
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/graphql",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "graphql"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Borrow_History",
+          "id": "fad1e6d4-00f1-429c-a564-4f3a4c4ce9e4",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "U2FsdGVkX1/+4Z4/5N5lQS+CXeZ4JEh1w8OZ/DjbreKPYx+CSGMdUT+JrHvTxtuK8V2O2zeit+hasXNS0EESPMB8w4TBu1JF9VIa8dAmKcKKDMNXYW81rDF+RdFmaIPmdjw/Nk61lxC3yHEQzpw8GTAeICasdkxmHNLThTlujiCUB+er/BPkSztmZoFvJifBuTk7pE4GYk1mTZVfjhMY7g+c2AT58nEDyyJvgMxblhdcw3XKgJrsnxRGv1cTKlHuyeRHTrBPp8u7H2mduT6+Pg==",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query GetAllBorrowings($page: Int, $limit: Int, $status: String, $userId: ID) {\r\n  getAllBorrowings(page: $page, limit: $limit, status: $status, userId: $userId) {\r\n    success\r\n    count\r\n    total\r\n    totalPages\r\n    currentPage\r\n    data {\r\n      id\r\n      userId {\r\n        id\r\n        name\r\n        email\r\n        role\r\n        isActive\r\n        createdAt\r\n        updatedAt\r\n      }\r\n      bookId {\r\n        id\r\n        title\r\n        author\r\n        isbn\r\n        publicationDate\r\n        genre\r\n        totalCopies\r\n        availableCopies\r\n        isActive\r\n        createdAt\r\n        updatedAt\r\n      }\r\n      borrowDate\r\n      dueDate\r\n      returnDate\r\n      status\r\n      createdAt\r\n      updatedAt\r\n    }\r\n  }\r\n}",
+                "variables": "{\r\n  \"page\": 1,\r\n  \"limit\": 10,\r\n  \"status\": \"borrowed\",\r\n  \"userId\": \"692ec8a9d195cd1ab020bb8e\"\r\n}"
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/graphql",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "graphql"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "92c543ed-941f-4411-bffe-32665434be7e"
+    },
+    {
+      "name": "Reports",
+      "item": [
+        {
+          "name": "Most_Borrowed",
+          "id": "92242799-bd27-435d-9ff7-5c873c790369",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query MostBorrowed($limit: Int) {\r\n  mostBorrowedBooks(limit: $limit) {\r\n    success\r\n    count\r\n    data {\r\n      id\r\n      title\r\n      author\r\n      isbn\r\n      genre\r\n      totalCopies\r\n      availableCopies\r\n      borrowCount\r\n      currentlyBorrowed\r\n    }\r\n  }\r\n}\r\n",
+                "variables": "{\r\n  \"limit\": 10\r\n}\r\n"
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/graphql",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "graphql"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Active_members",
+          "id": "8f158ed4-8844-46a9-bcff-cb9b355c84d4",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query ActiveMembers($limit: Int) {\r\n  activeMembers(limit: $limit) {\r\n    success\r\n    count\r\n    data {\r\n      id\r\n      name\r\n      email\r\n      role\r\n      totalBorrowings\r\n      currentBorrowings\r\n      returnedBooks\r\n    }\r\n  }\r\n}",
+                "variables": "{\r\n  \"limit\": 10\r\n}"
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/graphql",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "graphql"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Book_Availbility",
+          "id": "0cf67f00-f106-43dc-b98e-cea7e5530111",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query BookAvailability {\r\n  bookAvailability {\r\n    success\r\n    summary {\r\n      totalBooks\r\n      totalCopies\r\n      availableCopies\r\n      borrowedCopies\r\n      availabilityPercentage\r\n    }\r\n    currentBorrowings\r\n    genreWiseAvailability {\r\n      genre\r\n      totalBooks\r\n      totalCopies\r\n      availableCopies\r\n      borrowedCopies\r\n    }\r\n  }\r\n}",
+                "variables": "{\r\n  \"limit\": 10\r\n}"
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/graphql",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "graphql"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "OverDue_Books",
+          "id": "f1059963-22e0-40d4-a814-2515c696892c",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "query OverdueBooks {\r\n  overdueBooks {\r\n    success\r\n    count\r\n    data {\r\n      id\r\n      userId {\r\n        id\r\n        name\r\n        email\r\n        role\r\n        isActive\r\n      }\r\n      bookId {\r\n        id\r\n        title\r\n        author\r\n        isbn\r\n        genre\r\n        totalCopies\r\n        availableCopies\r\n      }\r\n      borrowDate\r\n      dueDate\r\n      returnDate\r\n      status\r\n    }\r\n  }\r\n}",
+                "variables": "{\r\n  \"limit\": 10\r\n}"
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/graphql",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "graphql"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "05f9a2be-fb54-4e79-bfe5-cd59a406049e"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "U2FsdGVkX1/+4Z4/5N5lQS+CXeZ4JEh1w8OZ/DjbreKPYx+CSGMdUT+JrHvTxtuK8V2O2zeit+hasXNS0EESPMB8w4TBu1JF9VIa8dAmKcKKDMNXYW81rDF+RdFmaIPmdjw/Nk61lxC3yHEQzpw8GTAeICasdkxmHNLThTlujiCUB+er/BPkSztmZoFvJifBuTk7pE4GYk1mTZVfjhMY7g+c2AT58nEDyyJvgMxblhdcw3XKgJrsnxRGv1cTKlHuyeRHTrBPp8u7H2mduT6+Pg==",
+        "type": "string"
+      }
+    ]
+  }
+}

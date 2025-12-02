@@ -1,0 +1,15 @@
+{
+  "workspace": {
+    "id": "bf90ece1-40c1-4c5b-810a-9c125bc8c14b"
+  },
+  "entities": {
+    "collections": [
+      "..\\postman\\collections\\NLM RestAPIs.postman_collection.json",
+      "..\\postman\\collections\\NLM GraphQL APIs.postman_collection.json"
+    ],
+    "environments": [],
+    "specs": [],
+    "flows": [],
+    "globals": []
+  }
+}
