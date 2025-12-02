@@ -74,6 +74,8 @@ Create a `.env` file in the `Server` directory and add the following environment
 PORT=4000
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret_key
+JWT_EXPIRE=7d
+JWT_ENCRYPTION_KEY=your_encription_key
 ```
 
 ### 🏃‍♂️ Running the Application
