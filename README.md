@@ -92,6 +92,33 @@ The server will start, and you can access the GraphQL Playground (if enabled) or
 
 The API is primarily exposed via GraphQL. You can explore the schema and test queries using the Apollo Sandbox or GraphQL Playground typically available at the server root or `/graphql` endpoint when running in development mode.
 
+## 🔌 REST API Endpoints
+
+In addition to GraphQL, the server provides the following REST API endpoints:
+
+### Authentication
+-   `POST /api/auth/register`: Register a new user.
+-   `POST /api/auth/login`: Login user.
+
+### Books
+-   `GET /api/books`: Get all books (Public).
+-   `GET /api/books/:id`: Get book by ID (Public).
+-   `POST /api/books`: Add a new book (Admin).
+-   `PATCH /api/books/:id`: Update a book (Admin).
+-   `DELETE /api/books/:id`: Delete a book (Admin).
+
+### Borrows
+-   `POST /api/borrows/:id`: Borrow a book (Member/Admin).
+-   `PATCH /api/borrows/return/:id`: Return a book (Member/Admin).
+-   `GET /api/borrows/my-history`: Get borrow history (Member/Admin).
+-   `GET /api/borrows`: Get all borrowed books (Admin).
+
+### Reports
+-   `GET /api/reports/most-borrowed-books`: Get most borrowed books (Admin).
+-   `GET /api/reports/active-members`: Get active members (Admin).
+-   `GET /api/reports/book-availability`: Get book availability (Admin).
+-   `GET /api/reports/overdue-books`: Get overdue books (Admin).
+
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
